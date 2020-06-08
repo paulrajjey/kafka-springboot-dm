@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.2.6.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.dm.kafka</groupId>
+	<artifactId>dm-kafka-demo</artifactId>
+	<version>1.0</version>
+	<name>dm-kafka-demo</name>
+	<description>Demo project for Spring Boot</description>
+
+	<properties>
+	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.8</java.version>
+
+		<!--start-class>com.redhat.App</start-class-->
+
+		<maven-surefire-plugin-version>2.19.1</maven-surefire-plugin-version>
+		<!-- <kie.version>6.5.0.Final-redhat-2</kie.version> -->
+		<kie.version>7.23.0.Final-redhat-00002</kie.version> 
+		<java.version>1.8</java.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+		
+		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+           
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+		<dependency>
+			<groupId>org.apache.kafka</groupId>
+			<artifactId>kafka-streams</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.kafka</groupId>
+			<artifactId>spring-kafka</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.junit.vintage</groupId>
+					<artifactId>junit-vintage-engine</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.kafka</groupId>
+			<artifactId>spring-kafka-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		
+		
+  <!-- rule dependency -->
+         <dependency>
+      <groupId>org.drools</groupId>
+      <artifactId>drools-core</artifactId>
+       <version>${kie.version}</version>
+      <!--  scope>provided</scope-->
+    </dependency> 
+   <dependency>
+        <groupId>org.drools</groupId>
+        <artifactId>drools-compiler</artifactId>
+        <version>${kie.version}</version>
+    </dependency>
+     <dependency>
+			<groupId>org.kie</groupId>
+			<artifactId>kie-internal</artifactId>
+			<version>${kie.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.kie</groupId>
+			<artifactId>kie-ci</artifactId>
+		<version>${kie.version}</version>	
+		<!-- exclusions>
+    			<exclusion>
+    			 <groupId>org.eclipse.sisu</groupId>
+  				 <artifactId>sisu-inject</artifactId>
+    			</exclusion>
+  				</exclusions>  -->
+		</dependency>
+		<dependency>
+    <groupId>org.kie</groupId>
+    <artifactId>kie-dmn-core</artifactId>
+    <version>${kie.version}</version>	
+</dependency>
+<dependency>
+
+            <groupId>org.kie.server</groupId>
+
+            <artifactId>kie-server-client</artifactId>
+            <version>${kie.version}</version>
+			<exclusions>
+    			<exclusion>
+      			<groupId>com.thoughtworks.xstream</groupId>
+    			<artifactId>xstream</artifactId>
+    			</exclusion>
+  				</exclusions> 
+            <!--  <version>7.5.0.Final</version>-->
+
+        </dependency>
+	<dependency>
+	<groupId>org.kie</groupId>
+    <artifactId>kie-dmn-api</artifactId>
+     <version>${kie.version}</version>
+     </dependency>	
+		<dependency>
+	<groupId>org.drools</groupId>
+	<artifactId>drools-decisiontables</artifactId>
+	<version>${kie.version}</version>
+	</dependency>
+	
+	
+	<dependency>
+	<groupId>org.drools</groupId>
+	<artifactId>drools-workbench-models-datamodel-api</artifactId>
+	<version>${kie.version}</version>
+</dependency>
+<dependency>
+      <groupId>org.drools</groupId>
+      <artifactId>drools-decisiontables</artifactId>
+      <version>${kie.version}</version>	
+    </dependency>
+    <dependency>
+	<groupId>org.drools</groupId>
+	<artifactId>drools-workbench-models-commons</artifactId>
+	 <version>${kie.version}</version>	
+</dependency>
+    <dependency>
+	<groupId>org.drools</groupId>
+	<artifactId>drools-workbench-models-guided-dtable</artifactId>
+	 <version>${kie.version}</version>	
+</dependency>
+		
+		<dependency>
+    <groupId>org.jbpm</groupId>
+    <artifactId>jbpm-bpmn2</artifactId>
+			<version>${kie.version}</version>
+</dependency>
+		 <dependency>
+            <groupId>org.jbpm</groupId>
+            <artifactId>jbpm-human-task-core</artifactId>
+           <version>${kie.version}</version>
+        </dependency>
+		<!-- Queuing -->
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-core</artifactId>
+			<version>2.17.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-spring-boot</artifactId>
+			<version>2.17.3</version> <!-- use the same version as your Camel core version -->
+		</dependency>
+		<!-- end rule dep end -->
+		<dependency>
+			<groupId>com.albertsons.model</groupId>
+	  		<artifactId>albertsons</artifactId>
+	  		<version>1.0</version>
+  		</dependency>
+  
+  <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-integration</artifactId>
+    </dependency>
+  
+  <!-- <dependency>
+      <groupId>org.springframework.integration</groupId>
+      <artifactId>spring-integration-java-dsl</artifactId>
+      <version>1.2.2.RELEASE</version>
+    </dependency> -->
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>2.5</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.springframework.integration/spring-integration-file -->
+<dependency>
+    <groupId>org.springframework.integration</groupId>
+    <artifactId>spring-integration-file</artifactId>
+    <version>5.3.0.RELEASE</version>
+</dependency>
+    <dependency>
+    <groupId>org.springframework.integration</groupId>
+    <artifactId>spring-integration-core</artifactId>
+    <version>5.3.0.RELEASE</version>
+</dependency>
+<dependency>
+    <groupId>org.springframework.integration</groupId>
+    <artifactId>spring-integration-file</artifactId>
+    <version>5.3.0.RELEASE</version>
+</dependency>
+<dependency>
+  <groupId>com.google.code.gson</groupId>
+  <artifactId>gson</artifactId>
+  <version>2.8.6</version>
+</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

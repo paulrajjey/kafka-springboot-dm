@@ -22,7 +22,7 @@
 
 		<maven-surefire-plugin-version>2.19.1</maven-surefire-plugin-version>
 		<!-- <kie.version>6.5.0.Final-redhat-2</kie.version> -->
-		<kie.version>7.23.0.Final-redhat-00002</kie.version> 
+		<kie.version>7.60.0.Final</kie.version> 
 		<java.version>1.8</java.version>
 	</properties>
 
